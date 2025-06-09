@@ -1,0 +1,20 @@
+# Caminho do seu arquivo principal Go
+cmd = "main.go"
+
+# Pasta onde o Go deve compilar (geralmente a raiz do projeto)
+working_dir = "."
+
+# Ignora mudanças em arquivos do Prisma Client Go (importante!)
+exclude_dir = ["prisma/prisma-client", "node_modules"]
+
+# Sufixos válidos para recarregar
+include_ext = ["go", "tpl", "tmpl", "html"]
+
+# Delay entre detecção de mudança e reload (ms)
+delay = 1000
+
+# Habilita log colorido
+color = "auto"
+
+# Comando opcional antes do build
+# pre_build = "npx prisma generate"

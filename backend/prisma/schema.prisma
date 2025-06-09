@@ -1,0 +1,42 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  schemas  = ["public", "inside"]
+}
+
+
+generator client {
+  provider        = "go run github.com/steebchen/prisma-client-go"
+  binaryTargets = ["linux-static-arm64"] 
+  output   = "./prisma-client"
+  previewFeatures = ["multiSchema"]
+}
+
+
+model UsersSurveysResponsesAux {
+  id                 BigInt   @id 
+  origin             String   @db.VarChar(20)
+  response_status_id Int      @db.SmallInt
+  created_at         DateTime? @db.Timestamp(6)
+
+  @@schema("inside")
+  @@map("users_surveys_responses_aux")
+
+  @@index([origin])
+  @@index([created_at])
+  @@index([origin, created_at])
+}
+
+model ConversionRateByDayChannel{
+  date            DateTime
+  channel         String   @map("channel") @db.VarChar(20)
+  conversion_rate Float
+  total           Int
+  converted       Int
+
+  @@id([date, channel])
+  @@map("conversion_by_day_channel")
+  @@schema("inside")
+
+}
+

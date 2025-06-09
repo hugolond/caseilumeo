@@ -2,7 +2,7 @@ services:
   - name: ilumeo-frontend
     type: web
     env: docker
-    repo: https://github.com/SEU_USUARIO/caseilumeo
+    repo: https://github.com/hugolond/caseilumeo
     region: oregon
     plan: free
     dockerContext: frontend

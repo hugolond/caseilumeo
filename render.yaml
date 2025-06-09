@@ -12,7 +12,9 @@ services:
         - frontend/**
     autoDeploy: true
     healthCheckPath: /
-    envVars: []
+    envVars:
+      key: VITE_API_URL
+        value: https://ilumeo-backend-uro3.onrender.com
 
   - name: ilumeo-backend
     type: web

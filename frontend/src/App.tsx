@@ -80,7 +80,7 @@ const App: React.FC = () => {
         console.log(baseUrlAPI)
         for (const origin of origins) {
           const response = await axios.get(
-            `${baseUrlAPI}/inside/conversion/${origin}?start=${start}&end=${end}`
+            `https://ilumeo-backend-uro3.onrender.com/inside/conversion/${origin}?start=${start}&end=${end}`
           );
           allResults.push(...response.data);
         }

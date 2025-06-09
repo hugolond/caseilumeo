@@ -1,0 +1,32 @@
+services:
+  - name: ilumeo-frontend
+    type: web
+    env: docker
+    repo: https://github.com/SEU_USUARIO/caseilumeo
+    region: oregon
+    plan: free
+    dockerContext: frontend
+    dockerfilePath: frontend/Dockerfile
+    buildFilter:
+      paths:
+        - frontend/**
+    autoDeploy: true
+    healthCheckPath: /
+    envVars: []
+
+  - name: ilumeo-backend
+    type: web
+    env: docker
+    repo: https://github.com/hugolond/caseilumeo
+    region: oregon
+    plan: free
+    dockerContext: backend
+    dockerfilePath: backend/Dockerfile
+    buildFilter:
+      paths:
+        - backend/**
+    autoDeploy: true
+    healthCheckPath: /healthz
+    envVars:
+      - key: PORT
+        value: 8080

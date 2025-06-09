@@ -55,6 +55,7 @@ const App: React.FC = () => {
   const itemsPerPage = 10;
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -74,10 +75,12 @@ const App: React.FC = () => {
         const start = startDate.toISOString().split("T")[0];
         const end = endDate.toISOString().split("T")[0];
         const allResults: ConversionData[] = [];
-
+        const baseUrlAPI = import.meta.env.VITE_API_URL;
+        console.log(import.meta.env)
+        console.log(baseUrlAPI)
         for (const origin of origins) {
           const response = await axios.get(
-            `http://localhost:8080/inside/conversion/${origin}?start=${start}&end=${end}`
+            `${baseUrlAPI}/inside/conversion/${origin}?start=${start}&end=${end}`
           );
           allResults.push(...response.data);
         }

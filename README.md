@@ -20,7 +20,7 @@ Análise temporal de taxa de conversão por origem a partir de grandes volumes d
 ## Rodando localmente
 
 ```bash
-https://github.com/hugolond/caseilumeo.git
+git clone https://github.com/hugolond/caseilumeo.git
 cd caseilumeo
 docker-compose up --build
 ```
